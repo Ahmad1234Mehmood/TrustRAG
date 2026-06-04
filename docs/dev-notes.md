@@ -1,1 +1,2 @@
 - Add environment config
+- Setup ChromaDB vector store
