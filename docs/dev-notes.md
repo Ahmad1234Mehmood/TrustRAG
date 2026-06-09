@@ -1,3 +1,4 @@
 - Add environment config
 - Setup ChromaDB vector store
 - Add BM25 keyword search
+- Integrate OpenAI API
