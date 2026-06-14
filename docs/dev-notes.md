@@ -3,3 +3,4 @@
 - Add BM25 keyword search
 - Integrate OpenAI API
 - Add chunk citation system
+- Build museum exhibit runner
