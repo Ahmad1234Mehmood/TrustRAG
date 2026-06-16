@@ -4,3 +4,4 @@
 - Integrate OpenAI API
 - Add chunk citation system
 - Build museum exhibit runner
+- Add score badges to frontend
