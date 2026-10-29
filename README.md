@@ -17,25 +17,25 @@ A full-stack RAG system that retrieves document chunks, generates cited answers,
 
 ## Chat Tab
 
-![Chat Demo](docs/chat_demo.png)
+![Chat Demo](docs/chat_demo.PNG)
 
 ---
 
 ## Self-Healing in Action
 
-![Self Heal](docs/selfheal_demo.png)
+![Self Heal](docs/selfheal_demo.PNG)
 
 ---
 
 ## Failure Mode Museum
 
-![Museum](docs/museum_demo.png)
+![Museum](docs/museum_demo.PNG)
 
 ---
 
 ## Run an Exhibit
 
-![Exhibit](docs/exhibit_demo.png)
+![Exhibit](docs/exhibit_demo.PNG)
 
 ---
 
