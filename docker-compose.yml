@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  # ── Backend ──────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: trustrag-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - USE_OLLAMA=${USE_OLLAMA:-false}
+      - OLLAMA_HOST=${OLLAMA_HOST:-http://host.docker.internal:11434}
+      - CHROMA_PERSIST_DIR=/data/vectordb
+      - PDF_UPLOAD_DIR=/data/uploads
+    volumes:
+      - trustrag_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - trustrag_net
+
+  # ── Frontend ─────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: trustrag-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - trustrag_net
+
+volumes:
+  trustrag_data:
+    name: trustrag_data
+
+networks:
+  trustrag_net:
+    name: trustrag_net
